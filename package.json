@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "node rebuild.js && tsc -p tsconfig-cjs.json",
+    "build": "node rebuild.js && node updateExport.js es5 && tsc -p tsconfig-cjs.json && node updateExport.js es6 && tsc -p tsconfig.json",
     "build:cjs": "node rebuild.js && tsc -p tsconfig-cjs.json",
     "build:esm": "node rebuild.js && tsc -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
@@ -33,6 +33,7 @@
     "@types/node": "^14.0.27",
     "dotenv": "^8.2.0",
     "eslint-plugin-import": "^2.22.0",
+    "export-helper": "0.0.2",
     "husky": "^4.2.5",
     "jest": "^26.4.0",
     "prettier": "^2.0.5",
